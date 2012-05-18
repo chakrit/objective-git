@@ -27,14 +27,14 @@
 #    if __IPHONE_OS_VERSION_MAX_ALLOWED < dct_arc_MIN_IOS_SDK
 #        warning "This program uses ARC which is only available in iOS SDK 4.3 and later."
 #    endif
+#
+#    define dct_nil(x)    x = nil  // always nil-out regardless of iOS version
 #    if __IPHONE_OS_VERSION_MIN_REQUIRED >= dct_arc_MIN_IOS_WEAK_TARGET
 #        define dct_weak weak
 #        define __dct_weak __weak
-#        define dct_nil(x)
 #    elif __IPHONE_OS_VERSION_MIN_REQUIRED >= dct_arc_MIN_IOS_TARGET
 #        define dct_weak unsafe_unretained
 #        define __dct_weak __unsafe_unretained
-#        define dct_nil(x)    x = nil
 #    endif
 
 // OS X equivalent
